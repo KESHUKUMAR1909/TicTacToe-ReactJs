@@ -1,13 +1,18 @@
 .grid{
     display: flex;
-    height: 500px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 .turn-hightlight{
     color: white;
+}
+@media  screen and (max-width:500px) {
+    .grid{
+        width: 100%;
+    }
 }
 button{
     padding: 10px;
