@@ -7,7 +7,8 @@ function App() {
 
   return (
     <>
-      <h1>Welcome to the Tic-Toe_World World</h1>
+     <h1 style={{ fontSize: "20px" }}>Welcome to the Tic-Toe_World World</h1>
+
       <Grid numberOfCards={9}/>
     </>
   )

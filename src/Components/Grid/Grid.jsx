@@ -25,17 +25,27 @@ function Grid({numberOfCards}){
         setTurn(true)
         setWinner(null);
     }
+    const isTie = board.every(cell => cell !== "") && !winner;
+
+
     return(
         <>    
-        <div className="grid-Wrapper">
-        {
-            winner&&(
-                <>
-                <h1 className="turn-highlight" >Winner is {winner}  <button className="reset" onClick={reset}>Reset Game</button> </h1>  
-                </>
-            )
-        }
-        <h1 className="turn-highlight"> Current Turn is : {turn?"o":"x"}</h1>
+            <div className="grid-Wrapper">
+            {winner && (
+                <h1 className="turn-highlight">
+                    Winner is {winner} 
+                    <button className="reset" onClick={reset}>Reset Game</button>
+                </h1>
+            )}
+            {isTie && (
+                <h1 className="turn-highlight">
+                    Game Tie 
+                    <button className="reset" onClick={reset}>Reset Game</button>
+                </h1>
+            )}
+            {!winner && !isTie && (
+                <h1 className="turn-highlight">Current Turn: {turn ? "o" : "x"}</h1>
+            )}
         </div>
         <div className="grid">
             {board.map((value,idx)=>
@@ -44,6 +54,7 @@ function Grid({numberOfCards}){
         </div>
         </>
     )
+
 
 }
 export default Grid;
